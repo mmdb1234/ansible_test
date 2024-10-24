@@ -12,13 +12,13 @@
     - name: Copy the service file
       copy:
         src: main.service
-        dest: main.my_script.service
+        dest: main.service
 
     - name: Reload systemd to recognize the new service
       command: systemctl daemon-reload
 
     - name: Start and enable the service
       systemd:
-        name: my_script.service
+        name: main.service
         state: started
         enabled: yes
