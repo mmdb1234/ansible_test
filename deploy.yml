@@ -12,10 +12,11 @@
     - name: Copy the service file
       copy:
         src: main.service
-        dest: main.service
+        dest: /etc/systemd/system/main.service
 
     - name: Reload systemd to recognize the new service
-      command: systemctl daemon-reload
+      systemd:
+        daemon_reload: yes
 
     - name: Start and enable the service
       systemd:
