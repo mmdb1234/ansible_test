@@ -1,0 +1,24 @@
+---
+- name: ansible_test
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Clone the Git repository
+      git:
+        repo: 'https://github.com/mmdb1234/ansible_test.git'
+        dest: /path/to/destination
+
+    - name: Copy the service file
+      copy:
+        src: main.service
+        dest: main.my_script.service
+
+    - name: Reload systemd to recognize the new service
+      command: systemctl daemon-reload
+
+    - name: Start and enable the service
+      systemd:
+        name: my_script.service
+        state: started
+        enabled: yes

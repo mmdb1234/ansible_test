@@ -1,0 +1,12 @@
+[Unit]
+Description=my service says im alive
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 main.py
+Restart=always
+User=mmdb
+WorkingDirectory=.
+
+[Install]
+WantedBy=multi-user.target
