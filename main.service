@@ -3,10 +3,10 @@ Description=my service says im alive
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/python3 /root/ansible_test/main.py
+ExecStart=/usr/bin/python3 /home/ansible_test/main.py
 Restart=always
 User=root
-WorkingDirectory=/root/ansible_test
+WorkingDirectory=/home/ansible_test
 
 [Install]
 WantedBy=multi-user.target
